@@ -1,0 +1,18 @@
+@model PublishLinkCommand
+@{
+  ViewData["Title"] = "Publier un lien";
+}
+
+<h1>Publier un nouveau lien !</h1>
+
+<form method="POST">
+
+  <div asp-validation-summary="All"></div>
+
+  @* <input type="text" name="Url" /> *@
+  <label asp-for="@Model.Url"></label>
+  <input asp-for="@Model.Url" />
+  <span asp-validation-for="@Model.Url"></span>
+  
+  <button type="submit">Publier !</button>
+</form>
