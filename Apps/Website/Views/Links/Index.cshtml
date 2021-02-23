@@ -1,0 +1,17 @@
+@model LinkDto[]
+@{
+  ViewData["Title"] = "Derniers liens publiés";
+}
+
+<h1>Derniers liens publiés</h1>
+
+<a asp-controller="Links" asp-action="Create">Poster un nouveau lien !</a>
+
+<ul>
+  @foreach (var link in Model)
+  {
+      <li>
+        <partial name="_LinkItem" model="@link" />
+      </li>
+  }
+</ul>

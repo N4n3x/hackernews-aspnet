@@ -1,0 +1,8 @@
+@model LinkDto
+@{
+  ViewData["Title"] = $"Détail du lien {Model.Url}";
+}
+
+<h1>Détail du lien</h1>
+
+<partial name="_LinkItem" model="@Model" />

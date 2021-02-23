@@ -1,0 +1,7 @@
+@model LinkDto
+
+<article>
+  <h2><a href="@Model.Url">@Model.Url</a></h2>
+  <p>publié le @Model.CreatedAt.ToShortDateString()
+     - <a asp-controller="Links" asp-action="Show" asp-route-linkid="@Model.Id">🔍 Afficher les détails</a></p>
+</article>

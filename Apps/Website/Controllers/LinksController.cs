@@ -5,6 +5,7 @@ namespace Website.Controllers
   using HN.Application;
   using MediatR;
   using System.Threading.Tasks;
+  using System;
 
   public class LinksController : Controller
   {
@@ -18,7 +19,15 @@ namespace Website.Controllers
 
     public async Task<IActionResult> Index()
     {
-      return Ok(await _bus.Send(new GetLinksQuery()));
+      var links = await _bus.Send(new GetLinksQuery());
+      return View(links);
+    }
+
+    [HttpGet("{controller}/detail/{linkid:guid}")]
+    public async Task<IActionResult> Show(Guid linkid)
+    {
+      var link = await _bus.Send(new GetLinkByIdQuery(linkid));
+      return View(link);
     }
 
     // [HttpGet]

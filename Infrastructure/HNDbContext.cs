@@ -9,6 +9,14 @@
   {
     public DbSet<Link> Links { get; set; }
 
+    // - Exposer un DbSet<Comment>
+    // - Définir le IEntityTypeConfiguration<Comment>
+    // - Générer la migration correspondante :
+    //    - Dans le projet /Infrastructure/
+    //    - dotnet ef migrations add CreateCommentEntity
+    // - Exposer le IQueryable<Comment> dans IHNContext
+    // - Implémenter le ICommentRepository dans /Repositories/
+
     IQueryable<Link> IHNContext.Links => Links;
 
     // IQueryable<Link> IHNContext.Links

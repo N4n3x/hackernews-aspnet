@@ -9,7 +9,7 @@
 
   <div asp-validation-summary="All"></div>
 
-  @* <input type="text" name="Url" /> *@
+  @* <input type="text" name="Url" value="@Model.Url" /> *@
   <label asp-for="@Model.Url"></label>
   <input asp-for="@Model.Url" />
   <span asp-validation-for="@Model.Url"></span>
